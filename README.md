@@ -2,6 +2,12 @@
 
 Portable Pi setup without a dotfile manager.
 
+You can install the package directly from GitHub:
+
+```bash
+pi install git:github.com/Jabbslad/pi-pack
+```
+
 ## What this repo does
 
 - acts as a local Pi package for your personal extensions, prompts, skills, and themes
@@ -36,15 +42,29 @@ From this repo:
 
 That will:
 - install `pi` if missing
-- generate `~/.pi/agent/settings.json`
+- copy `config/settings.template.json` to `~/.pi/agent/settings.json`
 - symlink `~/.pi/agent/AGENTS.md`
 - symlink `~/.pi/agent/keybindings.json`
 
+## Direct package install
+
+If you only want the Pi package resources and not the config sync scripts, this is enough:
+
+```bash
+pi install git:github.com/Jabbslad/pi-pack
+```
+
+or:
+
+```bash
+pi install https://github.com/Jabbslad/pi-pack
+```
+
 ## How settings work
 
-`config/settings.template.json` contains `__PACKAGE_PATH__`.
+`config/settings.template.json` is a normal Pi settings file.
 
-During sync, that placeholder is replaced with this repo's absolute path, so Pi loads this repo directly as a local package.
+It points at the GitHub package source directly, so your setup stays portable across machines.
 
 ## Daily workflow
 
@@ -58,7 +78,10 @@ During sync, that placeholder is replaced with this repo's absolute path, so Pi 
 ## New machine
 
 ```bash
-git clone <your-repo-url> ~/src/pi-pack
+pi install git:github.com/Jabbslad/pi-pack
+
+# optional if you also want synced AGENTS.md and keybindings.json
+git clone https://github.com/Jabbslad/pi-pack.git ~/src/pi-pack
 cd ~/src/pi-pack
 ./scripts/install.sh
 ```
@@ -66,5 +89,6 @@ cd ~/src/pi-pack
 ## Notes
 
 - existing `~/.pi/agent/settings.json` is backed up before replacement
+- `pi install git:github.com/Jabbslad/pi-pack` is the simplest way to get the package itself
 - this repo is the source of truth
 - if you want machine-specific tweaks later, add a second script or a local untracked overlay file

@@ -19,13 +19,7 @@ if [ -f "${SETTINGS_TARGET}" ] && [ ! -L "${SETTINGS_TARGET}" ]; then
   cp "${SETTINGS_TARGET}" "${SETTINGS_TARGET}.bak.$(date +%Y%m%d%H%M%S)"
 fi
 
-python3 - "${REPO_DIR}" "${SETTINGS_TEMPLATE}" > "${SETTINGS_TARGET}" <<'PY'
-from pathlib import Path
-import sys
-repo_dir = Path(sys.argv[1])
-template = Path(sys.argv[2]).read_text()
-print(template.replace("__PACKAGE_PATH__", str(repo_dir)))
-PY
+cp "${SETTINGS_TEMPLATE}" "${SETTINGS_TARGET}"
 
 ln -sfn "${REPO_DIR}/config/AGENTS.md" "${AGENTS_TARGET}"
 ln -sfn "${REPO_DIR}/config/keybindings.json" "${KEYBINDINGS_TARGET}"
