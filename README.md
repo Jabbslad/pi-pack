@@ -8,6 +8,12 @@ You can install the package directly from GitHub:
 pi install git:github.com/Jabbslad/pi-pack
 ```
 
+Or do a full no-clone bootstrap of package + config:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/Jabbslad/pi-pack/main/scripts/remote-install.sh)
+```
+
 ## What this repo does
 
 - acts as a local Pi package for your personal extensions, prompts, skills, and themes
@@ -34,17 +40,24 @@ pi-pack/
 
 ## Usage
 
-From this repo:
+From a fresh machine, the simplest full setup is:
 
 ```bash
-./scripts/install.sh
+bash <(curl -fsSL https://raw.githubusercontent.com/Jabbslad/pi-pack/main/scripts/remote-install.sh)
 ```
 
 That will:
 - install `pi` if missing
+- install the package from GitHub
 - copy `config/settings.template.json` to `~/.pi/agent/settings.json`
-- symlink `~/.pi/agent/AGENTS.md`
-- symlink `~/.pi/agent/keybindings.json`
+- copy `config/AGENTS.md` to `~/.pi/agent/AGENTS.md`
+- copy `config/keybindings.json` to `~/.pi/agent/keybindings.json`
+
+If you already cloned the repo locally, you can still run:
+
+```bash
+./scripts/install.sh
+```
 
 ## Direct package install
 
@@ -85,10 +98,21 @@ The `prompts/`, `skills/`, and `themes/` directories are kept empty until you ad
 
 ## New machine
 
+Package only:
+
 ```bash
 pi install git:github.com/Jabbslad/pi-pack
+```
 
-# optional if you also want synced AGENTS.md and keybindings.json
+Full setup without cloning:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/Jabbslad/pi-pack/main/scripts/remote-install.sh)
+```
+
+If you want a local editable checkout too:
+
+```bash
 git clone https://github.com/Jabbslad/pi-pack.git ~/src/pi-pack
 cd ~/src/pi-pack
 ./scripts/install.sh
@@ -98,6 +122,7 @@ cd ~/src/pi-pack
 
 - existing `~/.pi/agent/settings.json` is backed up before replacement
 - `pi install git:github.com/Jabbslad/pi-pack` is the simplest way to get the package itself
+- `scripts/remote-install.sh` is the simplest way to get package + config without cloning
 - package resource directories are intentionally empty unless they contain real Pi resources
 - this repo is the source of truth
 - if you want machine-specific tweaks later, add a second script or a local untracked overlay file
