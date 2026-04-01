@@ -1,0 +1,13 @@
+{
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4",
+  "defaultThinkingLevel": "medium",
+  "theme": "rose-pine",
+  "packages": [
+    "__PACKAGE_PATH__",
+    "npm:@plannotator/pi-extension",
+    "https://github.com/davebcn87/pi-autoresearch",
+    "git:github.com/Jabbslad/pi-rose-pine-theme",
+    "npm:pi-amplike"
+  ]
+}
