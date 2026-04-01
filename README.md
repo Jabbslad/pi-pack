@@ -19,7 +19,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Jabbslad/pi-pack/main/script
 ```text
 pi-pack/
   config/
-    settings.template.json
+    settings.json
     AGENTS.md
     keybindings.json
   scripts/
@@ -37,7 +37,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Jabbslad/pi-pack/main/script
 
 That will:
 - install `pi` if missing
-- copy `config/settings.template.json` to `~/.pi/agent/settings.json`
+- copy `config/settings.json` to `~/.pi/agent/settings.json`
 - copy `config/AGENTS.md` to `~/.pi/agent/AGENTS.md`
 - copy `config/keybindings.json` to `~/.pi/agent/keybindings.json`
 
@@ -49,13 +49,13 @@ If you already cloned the repo locally, you can run:
 
 ## How settings work
 
-`config/settings.template.json` is a normal Pi settings file.
+`config/settings.json` is a normal Pi settings file.
 
 It contains the defaults and package list you want shared across machines.
 
 ## Daily workflow
 
-- edit `config/settings.template.json` for package list / defaults
+- edit `config/settings.json` for package list / defaults
 - edit `config/AGENTS.md` for shared instructions
 - edit `config/keybindings.json` for shared keybindings
 - run `./scripts/sync.sh` after config changes

@@ -37,7 +37,7 @@ fi
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "${TMP_DIR}"' EXIT
 
-fetch "${RAW_BASE}/config/settings.template.json" "${TMP_DIR}/settings.json"
+fetch "${RAW_BASE}/config/settings.json" "${TMP_DIR}/settings.json"
 fetch "${RAW_BASE}/config/AGENTS.md" "${AGENTS_TARGET}"
 fetch "${RAW_BASE}/config/keybindings.json" "${KEYBINDINGS_TARGET}"
 cp "${TMP_DIR}/settings.json" "${SETTINGS_TARGET}"
