@@ -56,6 +56,64 @@ If you already cloned the repo locally, you can run:
 
 It contains the defaults and package list you want shared across machines.
 
+In this repo, the important defaults are:
+
+```json
+{
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4"
+}
+```
+
+That means Pi will try to use that provider/model pair unless you change it in `config/settings.json` or switch models inside Pi.
+
+## Provider login and model selection
+
+The easy-to-miss step in Pi is that syncing `settings.json` is not enough by itself.
+
+After bootstrap/sync, you should:
+
+1. launch `pi`
+2. run `/login`
+3. authenticate the provider you want to use
+4. optionally run `/model` to confirm or switch the selected model
+
+In this repo, `config/settings.json` sets the default provider and model:
+
+```json
+{
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4"
+}
+```
+
+So on a fresh machine, the practical flow is:
+
+```bash
+pi
+```
+
+Then inside Pi:
+
+```text
+/login
+```
+
+After login succeeds, Pi can actually use the configured provider.
+
+If needed, also check the active model:
+
+```text
+/model
+```
+
+A few practical notes:
+
+- this repo syncs shared Pi config, but it does **not** authenticate providers for you
+- provider authentication is a separate step you do inside Pi with `/login`
+- if the default provider/model is set but you have not logged in yet, Pi may still not be usable
+- machine-local custom providers/models can still be defined in `~/.pi/agent/models.json`, but that is separate from the `/login` step
+
 ## Daily workflow
 
 - edit `config/settings.json` for package list / defaults
