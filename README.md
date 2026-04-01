@@ -23,7 +23,6 @@ pi-pack/
     AGENTS.md
     keybindings.json
   scripts/
-    install.sh
     remote-install.sh
     sync.sh
 ```
@@ -42,10 +41,10 @@ That will:
 - copy `config/AGENTS.md` to `~/.pi/agent/AGENTS.md`
 - copy `config/keybindings.json` to `~/.pi/agent/keybindings.json`
 
-If you already cloned the repo locally, you can still run:
+If you already cloned the repo locally, you can run:
 
 ```bash
-./scripts/install.sh
+./scripts/sync.sh
 ```
 
 ## How settings work
@@ -74,13 +73,13 @@ If you want a local editable checkout too:
 ```bash
 git clone https://github.com/Jabbslad/pi-pack.git ~/src/pi-pack
 cd ~/src/pi-pack
-./scripts/install.sh
+./scripts/sync.sh
 ```
 
 ## Notes
 
 - existing `~/.pi/agent/settings.json` is backed up before replacement
 - `scripts/remote-install.sh` is the simplest way to get the full setup without cloning
-- `scripts/install.sh` and `scripts/sync.sh` are for local editable checkouts
+- `scripts/sync.sh` is for local editable checkouts
 - this repo is the source of truth
 - if you want machine-specific tweaks later, add a second script or a local untracked overlay file
