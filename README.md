@@ -72,7 +72,15 @@ Full setup without cloning:
 bash <(curl -fsSL https://raw.githubusercontent.com/Jabbslad/pi-pack/main/scripts/remote-install.sh)
 ```
 
-If you want a local editable checkout too:
+If you want a local editable checkout too, prefer `gh` when it is installed:
+
+```bash
+gh repo clone Jabbslad/pi-pack ~/src/pi-pack
+cd ~/src/pi-pack
+./scripts/sync.sh
+```
+
+Fallback with plain git:
 
 ```bash
 git clone https://github.com/Jabbslad/pi-pack.git ~/src/pi-pack
@@ -84,6 +92,7 @@ cd ~/src/pi-pack
 
 - existing `~/.pi/agent/settings.json` is backed up before replacement
 - `config/APPEND_SYSTEM.md` is synced to Pi's global appended system prompt file for additive behavior
+- the shared prompt currently prefers `gh` for GitHub-related git operations when it is already installed, and falls back to plain `git` when that is simpler or `gh` is unavailable
 - `config/AGENTS.md` is synced to Pi's global context file for repo/workflow conventions
 - `scripts/remote-install.sh` is the simplest way to get the full setup without cloning
 - `scripts/sync.sh` is for local editable checkouts
