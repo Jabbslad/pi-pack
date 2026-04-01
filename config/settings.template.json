@@ -4,7 +4,6 @@
   "defaultThinkingLevel": "medium",
   "theme": "rose-pine",
   "packages": [
-    "git:github.com/Jabbslad/pi-pack",
     "npm:@plannotator/pi-extension",
     "https://github.com/davebcn87/pi-autoresearch",
     "git:github.com/Jabbslad/pi-rose-pine-theme",
