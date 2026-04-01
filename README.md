@@ -12,6 +12,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Jabbslad/pi-pack/main/script
 
 - stores your global Pi config source files in `config/`
 - provides scripts to sync everything into `~/.pi/agent`
+- keeps global additive prompt behavior separate from repo/workflow conventions
 - serves as the source of truth for your portable Pi setup across machines
 
 ## Layout
@@ -58,8 +59,8 @@ It contains the defaults and package list you want shared across machines.
 ## Daily workflow
 
 - edit `config/settings.json` for package list / defaults
-- edit `config/AGENTS.md` for shared instructions
-- edit `config/APPEND_SYSTEM.md` for global system-prompt additions
+- edit `config/AGENTS.md` for repo/workflow conventions
+- edit `config/APPEND_SYSTEM.md` for global additive agent behavior
 - edit `config/keybindings.json` for shared keybindings
 - run `./scripts/sync.sh` after config changes
 
@@ -82,7 +83,8 @@ cd ~/src/pi-pack
 ## Notes
 
 - existing `~/.pi/agent/settings.json` is backed up before replacement
-- `config/APPEND_SYSTEM.md` is synced to Pi's global appended system prompt file
+- `config/APPEND_SYSTEM.md` is synced to Pi's global appended system prompt file for additive behavior
+- `config/AGENTS.md` is synced to Pi's global context file for repo/workflow conventions
 - `scripts/remote-install.sh` is the simplest way to get the full setup without cloning
 - `scripts/sync.sh` is for local editable checkouts
 - this repo is the source of truth
