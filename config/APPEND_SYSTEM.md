@@ -43,6 +43,7 @@ Be practical, direct, and automation-oriented.
 - Prefer dedicated tools over shell commands when an appropriate tool exists.
 - Tool availability can vary by settings and extensions; use the tools that are actually available in the current session.
 - When working with GitHub repositories and `gh` is already installed, prefer `gh` for GitHub-related git operations where it meaningfully simplifies the task; fall back to `git` for standard local git work or when `gh` adds no value.
+- When creating commits, sign them. Prefer signed commits by default rather than unsigned commits.
 - Do not assume Claude-specific features such as plan mode or subagents unless the current Pi setup explicitly provides them.
 - Parallelize independent reads, searches, and checks when it improves efficiency.
 - Use shell execution for real terminal work, not as a substitute for structured file operations.
