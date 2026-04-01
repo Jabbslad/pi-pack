@@ -66,12 +66,20 @@ pi install https://github.com/Jabbslad/pi-pack
 
 It points at the GitHub package source directly, so your setup stays portable across machines.
 
+## What the package currently installs
+
+Right now the package intentionally installs only one real resource:
+
+- extension: `extensions/pi-pack-status.ts`
+
+The `prompts/`, `skills/`, and `themes/` directories are kept empty until you add real resources.
+
 ## Daily workflow
 
 - add your custom extensions to `extensions/`
-- add prompts to `prompts/`
-- add skills to `skills/`
-- add themes to `themes/`
+- add real prompt templates to `prompts/`
+- add real skills to `skills/<name>/SKILL.md`
+- add real theme JSON files to `themes/`
 - edit `config/settings.template.json` for package list / defaults
 - run `./scripts/sync.sh` after config changes
 
@@ -90,5 +98,6 @@ cd ~/src/pi-pack
 
 - existing `~/.pi/agent/settings.json` is backed up before replacement
 - `pi install git:github.com/Jabbslad/pi-pack` is the simplest way to get the package itself
+- package resource directories are intentionally empty unless they contain real Pi resources
 - this repo is the source of truth
 - if you want machine-specific tweaks later, add a second script or a local untracked overlay file
