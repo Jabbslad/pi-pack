@@ -21,6 +21,7 @@ pi-pack/
   config/
     settings.json
     AGENTS.md
+    APPEND_SYSTEM.md
     keybindings.json
   scripts/
     remote-install.sh
@@ -39,6 +40,7 @@ That will:
 - install `pi` if missing
 - copy `config/settings.json` to `~/.pi/agent/settings.json`
 - copy `config/AGENTS.md` to `~/.pi/agent/AGENTS.md`
+- copy `config/APPEND_SYSTEM.md` to `~/.pi/agent/APPEND_SYSTEM.md`
 - copy `config/keybindings.json` to `~/.pi/agent/keybindings.json`
 
 If you already cloned the repo locally, you can run:
@@ -57,6 +59,7 @@ It contains the defaults and package list you want shared across machines.
 
 - edit `config/settings.json` for package list / defaults
 - edit `config/AGENTS.md` for shared instructions
+- edit `config/APPEND_SYSTEM.md` for global system-prompt additions
 - edit `config/keybindings.json` for shared keybindings
 - run `./scripts/sync.sh` after config changes
 
@@ -79,6 +82,7 @@ cd ~/src/pi-pack
 ## Notes
 
 - existing `~/.pi/agent/settings.json` is backed up before replacement
+- `config/APPEND_SYSTEM.md` is synced to Pi's global appended system prompt file
 - `scripts/remote-install.sh` is the simplest way to get the full setup without cloning
 - `scripts/sync.sh` is for local editable checkouts
 - this repo is the source of truth

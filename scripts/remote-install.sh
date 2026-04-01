@@ -7,6 +7,7 @@ RAW_BASE="https://raw.githubusercontent.com/${REPO_SLUG}/${BRANCH}"
 PI_DIR="${HOME}/.pi/agent"
 SETTINGS_TARGET="${PI_DIR}/settings.json"
 AGENTS_TARGET="${PI_DIR}/AGENTS.md"
+APPEND_SYSTEM_TARGET="${PI_DIR}/APPEND_SYSTEM.md"
 KEYBINDINGS_TARGET="${PI_DIR}/keybindings.json"
 
 fetch() {
@@ -39,11 +40,13 @@ trap 'rm -rf "${TMP_DIR}"' EXIT
 
 fetch "${RAW_BASE}/config/settings.json" "${TMP_DIR}/settings.json"
 fetch "${RAW_BASE}/config/AGENTS.md" "${AGENTS_TARGET}"
+fetch "${RAW_BASE}/config/APPEND_SYSTEM.md" "${APPEND_SYSTEM_TARGET}"
 fetch "${RAW_BASE}/config/keybindings.json" "${KEYBINDINGS_TARGET}"
 cp "${TMP_DIR}/settings.json" "${SETTINGS_TARGET}"
 
 echo "Installed pi-pack configuration to ${PI_DIR}"
 echo "- settings: ${SETTINGS_TARGET}"
 echo "- AGENTS:   ${AGENTS_TARGET}"
+echo "- APPEND:   ${APPEND_SYSTEM_TARGET}"
 echo "- keys:     ${KEYBINDINGS_TARGET}"
 echo "Start pi with: pi"

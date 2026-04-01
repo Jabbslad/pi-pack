@@ -6,6 +6,7 @@ PI_DIR="${HOME}/.pi/agent"
 SETTINGS_SOURCE="${REPO_DIR}/config/settings.json"
 SETTINGS_TARGET="${PI_DIR}/settings.json"
 AGENTS_TARGET="${PI_DIR}/AGENTS.md"
+APPEND_SYSTEM_TARGET="${PI_DIR}/APPEND_SYSTEM.md"
 KEYBINDINGS_TARGET="${PI_DIR}/keybindings.json"
 
 mkdir -p "${PI_DIR}"
@@ -22,9 +23,11 @@ fi
 cp "${SETTINGS_SOURCE}" "${SETTINGS_TARGET}"
 
 ln -sfn "${REPO_DIR}/config/AGENTS.md" "${AGENTS_TARGET}"
+ln -sfn "${REPO_DIR}/config/APPEND_SYSTEM.md" "${APPEND_SYSTEM_TARGET}"
 ln -sfn "${REPO_DIR}/config/keybindings.json" "${KEYBINDINGS_TARGET}"
 
 echo "Synced Pi config to ${PI_DIR}"
 echo "- settings: ${SETTINGS_TARGET}"
 echo "- AGENTS:   ${AGENTS_TARGET}"
+echo "- APPEND:   ${APPEND_SYSTEM_TARGET}"
 echo "- keys:     ${KEYBINDINGS_TARGET}"
