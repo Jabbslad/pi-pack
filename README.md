@@ -24,6 +24,7 @@ pi-pack/
     keybindings.json
   scripts/
     install.sh
+    remote-install.sh
     sync.sh
 ```
 
@@ -80,5 +81,6 @@ cd ~/src/pi-pack
 
 - existing `~/.pi/agent/settings.json` is backed up before replacement
 - `scripts/remote-install.sh` is the simplest way to get the full setup without cloning
+- `scripts/install.sh` and `scripts/sync.sh` are for local editable checkouts
 - this repo is the source of truth
 - if you want machine-specific tweaks later, add a second script or a local untracked overlay file
