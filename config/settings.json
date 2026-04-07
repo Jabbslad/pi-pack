@@ -1,12 +1,17 @@
 {
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.4",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-4-6",
   "defaultThinkingLevel": "medium",
   "theme": "rose-pine",
   "packages": [
-    "npm:@plannotator/pi-extension",
     "https://github.com/davebcn87/pi-autoresearch",
     "git:github.com/Jabbslad/pi-rose-pine-theme",
-    "npm:pi-amplike"
-  ]
+    "npm:pi-web-access",
+    "npm:@tintinweb/pi-subagents",
+    "npm:pi-mcp-adapter",
+    "npm:@plannotator/pi-extension",
+    "git:github.com/Jabbslad/pi-shimmer",
+    "../../dev/pi/pi-tokenmaxing"
+  ],
+  "lastChangelogVersion": "0.65.2"
 }

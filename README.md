@@ -24,6 +24,10 @@ pi-pack/
     AGENTS.md
     APPEND_SYSTEM.md
     keybindings.json
+  skills/
+    code-simplifier/
+      SKILL.md
+      LICENSE
   scripts/
     remote-install.sh
     sync.sh
@@ -43,6 +47,7 @@ That will:
 - copy `config/AGENTS.md` to `~/.pi/agent/AGENTS.md`
 - copy `config/APPEND_SYSTEM.md` to `~/.pi/agent/APPEND_SYSTEM.md`
 - copy `config/keybindings.json` to `~/.pi/agent/keybindings.json`
+- install bundled local skills into `~/.pi/agent/skills/`
 
 If you already cloned the repo locally, you can run:
 
@@ -120,6 +125,7 @@ A few practical notes:
 - edit `config/AGENTS.md` for repo/workflow conventions
 - edit `config/APPEND_SYSTEM.md` for global additive agent behavior
 - edit `config/keybindings.json` for shared keybindings
+- edit `skills/` for bundled local Pi skills
 - run `./scripts/sync.sh` after config changes
 
 ## New machine
@@ -152,6 +158,8 @@ cd ~/src/pi-pack
 - `config/APPEND_SYSTEM.md` is synced to Pi's global appended system prompt file for additive behavior
 - the shared prompt currently prefers `gh` for GitHub-related git operations when it is already installed, and falls back to plain `git` when that is simpler or `gh` is unavailable
 - `config/AGENTS.md` is synced to Pi's global context file for repo/workflow conventions
+- local bundled skills are synced into `~/.pi/agent/skills/` and auto-discovered by Pi
+- the repo currently includes a Pi port of the Claude `code-simplifier` skill, available via `/skill:code-simplifier`
 - `scripts/remote-install.sh` is the simplest way to get the full setup without cloning
 - `scripts/sync.sh` is for local editable checkouts
 - this repo is the source of truth
