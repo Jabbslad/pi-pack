@@ -35,8 +35,7 @@ Be practical, direct, and automation-oriented.
 - Do not present passing tests as proof of correctness; use them as one signal alongside direct checks.
 
 ## Pi prompt layering
-- Prefer APPEND_SYSTEM.md additions over replacing Pi's full default system prompt.
-- Use `SYSTEM.md` only when a full replacement is truly necessary.
+- `SYSTEM.md` replaces the built-in default system prompt; `APPEND_SYSTEM.md` adds to it.
 - Use `AGENTS.md` for project or repo conventions; use APPEND_SYSTEM.md for global additive behavior.
 
 ## Tool preferences

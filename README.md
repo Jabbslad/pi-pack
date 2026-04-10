@@ -22,6 +22,7 @@ pi-pack/
   config/
     settings.json
     AGENTS.md
+    SYSTEM.md
     APPEND_SYSTEM.md
     keybindings.json
   skills/
@@ -45,6 +46,7 @@ That will:
 - install `pi` if missing
 - copy `config/settings.json` to `~/.pi/agent/settings.json`
 - copy `config/AGENTS.md` to `~/.pi/agent/AGENTS.md`
+- copy `config/SYSTEM.md` to `~/.pi/agent/SYSTEM.md`
 - copy `config/APPEND_SYSTEM.md` to `~/.pi/agent/APPEND_SYSTEM.md`
 - copy `config/keybindings.json` to `~/.pi/agent/keybindings.json`
 - install bundled local skills into `~/.pi/agent/skills/`

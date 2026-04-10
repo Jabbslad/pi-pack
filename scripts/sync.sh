@@ -7,6 +7,7 @@ SETTINGS_SOURCE="${REPO_DIR}/config/settings.json"
 SETTINGS_TARGET="${PI_DIR}/settings.json"
 AGENTS_TARGET="${PI_DIR}/AGENTS.md"
 APPEND_SYSTEM_TARGET="${PI_DIR}/APPEND_SYSTEM.md"
+SYSTEM_TARGET="${PI_DIR}/SYSTEM.md"
 KEYBINDINGS_TARGET="${PI_DIR}/keybindings.json"
 SKILLS_SOURCE_DIR="${REPO_DIR}/skills"
 SKILLS_TARGET_DIR="${PI_DIR}/skills"
@@ -25,6 +26,7 @@ fi
 cp "${SETTINGS_SOURCE}" "${SETTINGS_TARGET}"
 
 ln -sfn "${REPO_DIR}/config/AGENTS.md" "${AGENTS_TARGET}"
+ln -sfn "${REPO_DIR}/config/SYSTEM.md" "${SYSTEM_TARGET}"
 ln -sfn "${REPO_DIR}/config/APPEND_SYSTEM.md" "${APPEND_SYSTEM_TARGET}"
 ln -sfn "${REPO_DIR}/config/keybindings.json" "${KEYBINDINGS_TARGET}"
 
@@ -36,6 +38,7 @@ fi
 echo "Synced Pi config to ${PI_DIR}"
 echo "- settings: ${SETTINGS_TARGET}"
 echo "- AGENTS:   ${AGENTS_TARGET}"
+echo "- SYSTEM:   ${SYSTEM_TARGET}"
 echo "- APPEND:   ${APPEND_SYSTEM_TARGET}"
 echo "- keys:     ${KEYBINDINGS_TARGET}"
 echo "- skills:   ${SKILLS_TARGET_DIR}"
