@@ -11,7 +11,7 @@
     "npm:pi-mcp-adapter",
     "npm:@plannotator/pi-extension",
     "git:github.com/Jabbslad/pi-shimmer",
-    "../../dev/pi/pi-tokenmaxing"
+    "git:github.com/Jabbslad/pi-tokenmaxing"
   ],
-  "lastChangelogVersion": "0.65.2"
+  "lastChangelogVersion": "0.67.68"
 }
