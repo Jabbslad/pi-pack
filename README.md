@@ -57,6 +57,8 @@ If you already cloned the repo locally, you can run:
 ./scripts/sync.sh
 ```
 
+The local sync script symlinks shared config files, including `settings.json`, from the checkout into `~/.pi/agent` so edits in this repo take effect immediately.
+
 ## How settings work
 
 `config/settings.json` is a normal Pi settings file.
@@ -156,7 +158,7 @@ cd ~/src/pi-pack
 
 ## Notes
 
-- existing `~/.pi/agent/settings.json` is backed up before replacement
+- existing non-symlink `~/.pi/agent/settings.json` is backed up before bootstrap replacement or local sync linking
 - `config/APPEND_SYSTEM.md` is synced to Pi's global appended system prompt file for additive behavior
 - the shared prompt currently prefers `gh` for GitHub-related git operations when it is already installed, and falls back to plain `git` when that is simpler or `gh` is unavailable
 - `config/AGENTS.md` is synced to Pi's global context file for repo/workflow conventions

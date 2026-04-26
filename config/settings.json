@@ -1,7 +1,7 @@
 {
-  "defaultProvider": "anthropic",
-  "defaultModel": "claude-opus-4-6",
-  "defaultThinkingLevel": "medium",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "defaultThinkingLevel": "high",
   "theme": "rose-pine",
   "packages": [
     "https://github.com/davebcn87/pi-autoresearch",
@@ -9,9 +9,20 @@
     "npm:pi-web-access",
     "npm:@tintinweb/pi-subagents",
     "npm:pi-mcp-adapter",
-    "npm:@plannotator/pi-extension",
+    {
+      "source": "npm:@plannotator/pi-extension",
+      "extensions": [
+        "-"
+      ],
+      "skills": [
+        "-skills/plannotator-compound/SKILL.md"
+      ]
+    },
     "git:github.com/Jabbslad/pi-shimmer",
-    "git:github.com/Jabbslad/pi-tokenmaxing"
+    "git:github.com/Jabbslad/pi-tokenmaxing",
+    "git:github.com/Jabbslad/pi-plan-mode",
+    "git:github.com/Jabbslad/pi-ask-user",
+    "git:github.com/Jabbslad/pi-mempalace"
   ],
-  "lastChangelogVersion": "0.67.68"
+  "lastChangelogVersion": "0.70.2"
 }

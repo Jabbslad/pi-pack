@@ -23,7 +23,7 @@ if [ -f "${SETTINGS_TARGET}" ] && [ ! -L "${SETTINGS_TARGET}" ]; then
   cp "${SETTINGS_TARGET}" "${SETTINGS_TARGET}.bak.$(date +%Y%m%d%H%M%S)"
 fi
 
-cp "${SETTINGS_SOURCE}" "${SETTINGS_TARGET}"
+ln -sfn "${SETTINGS_SOURCE}" "${SETTINGS_TARGET}"
 
 ln -sfn "${REPO_DIR}/config/AGENTS.md" "${AGENTS_TARGET}"
 ln -sfn "${REPO_DIR}/config/SYSTEM.md" "${SYSTEM_TARGET}"
