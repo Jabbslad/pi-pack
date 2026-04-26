@@ -12,7 +12,22 @@ Before implementing:
 - State your assumptions explicitly. If uncertain, ask.
 - If multiple interpretations exist, present them - don't pick silently.
 - If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
+- If something is unclear, stop. Name what's confusing. If there are 2-4 clear options, use `AskUserQuestion`; otherwise ask normally.
+
+## Structured User Questions
+
+When user input is needed and there are 2-4 clear options, prefer the `AskUserQuestion` tool instead of asking in plain text.
+
+Use `AskUserQuestion` for:
+- implementation choices with trade-offs
+- ambiguous requirements where options are known
+- UI/layout/API/design choices
+- batching 2-4 related decisions before coding
+
+Do not use it for:
+- simple yes/no questions
+- questions answerable by reading the code
+- plan approval; use `ExitPlanMode` instead
 
 ## 2. Simplicity First
 
