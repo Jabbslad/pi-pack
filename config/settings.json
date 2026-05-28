@@ -19,5 +19,9 @@
   "extensions": [
     "-extensions/pi-profiler.ts"
   ],
-  "hideThinkingBlock": false
+  "hideThinkingBlock": false,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "enableInstallTelemetry": false
 }
