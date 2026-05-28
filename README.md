@@ -170,7 +170,7 @@ cd ~/src/pi-pack
 - local bundled skills are synced into `~/.pi/agent/skills/` and auto-discovered by Pi
 - the repo currently includes a Pi port of the Claude `code-simplifier` skill, available via `/skill:code-simplifier`
 - local bundled extensions are synced into `~/.pi/agent/extensions/` and auto-discovered by Pi
-- the repo currently includes the `anthropic-usage` extension, which adds a `/usage` command rendering Anthropic subscription usage (5-hour and 7-day windows) as ANSI bar charts
+- the repo currently includes the `anthropic-usage` extension, which adds a `/usage` command rendering Anthropic subscription usage (5-hour and 7-day windows) as ANSI bar charts, plus a "Projected burn" section that estimates per-window burn rate (%/h) from samples taken during the current session and projects either the ETA to hit each cap or the expected utilization by reset time (a baseline sample is taken at session start, so a rough rate is available from the first `/usage` call)
 - `sync.sh` symlinks bundled extensions individually, so other local extensions in `~/.pi/agent/extensions/` are preserved
 - `scripts/remote-install.sh` is the simplest way to get the full setup without cloning
 - `scripts/sync.sh` is for local editable checkouts
