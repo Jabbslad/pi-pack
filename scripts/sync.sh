@@ -11,6 +11,8 @@ SYSTEM_TARGET="${PI_DIR}/SYSTEM.md"
 KEYBINDINGS_TARGET="${PI_DIR}/keybindings.json"
 SKILLS_SOURCE_DIR="${REPO_DIR}/skills"
 SKILLS_TARGET_DIR="${PI_DIR}/skills"
+EXTENSIONS_SOURCE_DIR="${REPO_DIR}/extensions"
+EXTENSIONS_TARGET_DIR="${PI_DIR}/extensions"
 
 mkdir -p "${PI_DIR}"
 
@@ -35,10 +37,20 @@ if [ -d "${SKILLS_SOURCE_DIR}" ]; then
   rsync -a --delete "${SKILLS_SOURCE_DIR}/" "${SKILLS_TARGET_DIR}/"
 fi
 
+# Symlink each bundled extension individually so other local extensions are preserved.
+mkdir -p "${EXTENSIONS_TARGET_DIR}"
+if [ -d "${EXTENSIONS_SOURCE_DIR}" ]; then
+  for ext in "${EXTENSIONS_SOURCE_DIR}"/*.ts; do
+    [ -e "${ext}" ] || continue
+    ln -sfn "${ext}" "${EXTENSIONS_TARGET_DIR}/$(basename "${ext}")"
+  done
+fi
+
 echo "Synced Pi config to ${PI_DIR}"
-echo "- settings: ${SETTINGS_TARGET}"
-echo "- AGENTS:   ${AGENTS_TARGET}"
-echo "- SYSTEM:   ${SYSTEM_TARGET}"
-echo "- APPEND:   ${APPEND_SYSTEM_TARGET}"
-echo "- keys:     ${KEYBINDINGS_TARGET}"
-echo "- skills:   ${SKILLS_TARGET_DIR}"
+echo "- settings:   ${SETTINGS_TARGET}"
+echo "- AGENTS:     ${AGENTS_TARGET}"
+echo "- SYSTEM:     ${SYSTEM_TARGET}"
+echo "- APPEND:     ${APPEND_SYSTEM_TARGET}"
+echo "- keys:       ${KEYBINDINGS_TARGET}"
+echo "- skills:     ${SKILLS_TARGET_DIR}"
+echo "- extensions: ${EXTENSIONS_TARGET_DIR}"

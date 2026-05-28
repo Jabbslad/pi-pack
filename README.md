@@ -11,6 +11,7 @@ bash <(curl -fsSL https://raw.githubusercontent.com/Jabbslad/pi-pack/main/script
 ## What this repo does
 
 - stores your global Pi config source files in `config/`
+- bundles local Pi skills and extensions for `~/.pi/agent`
 - provides scripts to sync everything into `~/.pi/agent`
 - keeps global additive prompt behavior separate from repo/workflow conventions
 - serves as the source of truth for your portable Pi setup across machines
@@ -29,6 +30,8 @@ pi-pack/
     code-simplifier/
       SKILL.md
       LICENSE
+  extensions/
+    anthropic-usage.ts
   scripts/
     remote-install.sh
     sync.sh
@@ -50,6 +53,7 @@ That will:
 - copy `config/APPEND_SYSTEM.md` to `~/.pi/agent/APPEND_SYSTEM.md`
 - copy `config/keybindings.json` to `~/.pi/agent/keybindings.json`
 - install bundled local skills into `~/.pi/agent/skills/`
+- install bundled local extensions into `~/.pi/agent/extensions/`
 
 If you already cloned the repo locally, you can run:
 
@@ -130,6 +134,7 @@ A few practical notes:
 - edit `config/APPEND_SYSTEM.md` for global additive agent behavior
 - edit `config/keybindings.json` for shared keybindings
 - edit `skills/` for bundled local Pi skills
+- edit `extensions/` for bundled local Pi extensions
 - run `./scripts/sync.sh` after config changes
 
 ## New machine
@@ -164,6 +169,9 @@ cd ~/src/pi-pack
 - `config/AGENTS.md` is synced to Pi's global context file for repo/workflow conventions
 - local bundled skills are synced into `~/.pi/agent/skills/` and auto-discovered by Pi
 - the repo currently includes a Pi port of the Claude `code-simplifier` skill, available via `/skill:code-simplifier`
+- local bundled extensions are synced into `~/.pi/agent/extensions/` and auto-discovered by Pi
+- the repo currently includes the `anthropic-usage` extension, which adds a `/usage` command rendering Anthropic subscription usage (5-hour and 7-day windows) as ANSI bar charts
+- `sync.sh` symlinks bundled extensions individually, so other local extensions in `~/.pi/agent/extensions/` are preserved
 - `scripts/remote-install.sh` is the simplest way to get the full setup without cloning
 - `scripts/sync.sh` is for local editable checkouts
 - this repo is the source of truth

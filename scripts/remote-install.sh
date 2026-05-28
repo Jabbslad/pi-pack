@@ -12,6 +12,7 @@ SYSTEM_TARGET="${PI_DIR}/SYSTEM.md"
 KEYBINDINGS_TARGET="${PI_DIR}/keybindings.json"
 SKILLS_DIR="${PI_DIR}/skills"
 CODE_SIMPLIFIER_DIR="${SKILLS_DIR}/code-simplifier"
+EXTENSIONS_DIR="${PI_DIR}/extensions"
 
 fetch() {
   local url="$1"
@@ -29,6 +30,7 @@ fetch() {
 
 mkdir -p "${PI_DIR}"
 mkdir -p "${CODE_SIMPLIFIER_DIR}"
+mkdir -p "${EXTENSIONS_DIR}"
 
 if ! command -v pi >/dev/null 2>&1; then
   echo "Installing pi..."
@@ -49,6 +51,7 @@ fetch "${RAW_BASE}/config/APPEND_SYSTEM.md" "${APPEND_SYSTEM_TARGET}"
 fetch "${RAW_BASE}/config/keybindings.json" "${KEYBINDINGS_TARGET}"
 fetch "${RAW_BASE}/skills/code-simplifier/SKILL.md" "${CODE_SIMPLIFIER_DIR}/SKILL.md"
 fetch "${RAW_BASE}/skills/code-simplifier/LICENSE" "${CODE_SIMPLIFIER_DIR}/LICENSE"
+fetch "${RAW_BASE}/extensions/anthropic-usage.ts" "${EXTENSIONS_DIR}/anthropic-usage.ts"
 cp "${TMP_DIR}/settings.json" "${SETTINGS_TARGET}"
 
 echo "Installed pi-pack configuration to ${PI_DIR}"
@@ -58,4 +61,6 @@ echo "- SYSTEM:   ${SYSTEM_TARGET}"
 echo "- APPEND:   ${APPEND_SYSTEM_TARGET}"
 echo "- keys:     ${KEYBINDINGS_TARGET}"
 echo "- skills:   ${SKILLS_DIR}"
+echo "- exts:     ${EXTENSIONS_DIR}"
 echo "Start pi with: pi"
+echo "The /usage command (Anthropic subscription usage) is available after launch."
