@@ -1,28 +1,23 @@
 {
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
-  "defaultThinkingLevel": "high",
-  "theme": "rose-pine",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-4-8",
+  "defaultThinkingLevel": "xhigh",
+  "theme": "dark",
   "packages": [
     "https://github.com/davebcn87/pi-autoresearch",
     "git:github.com/Jabbslad/pi-rose-pine-theme",
-    "npm:pi-web-access",
-    "npm:@tintinweb/pi-subagents",
-    "npm:pi-mcp-adapter",
-    {
-      "source": "npm:@plannotator/pi-extension",
-      "extensions": [
-        "-"
-      ],
-      "skills": [
-        "-skills/plannotator-compound/SKILL.md"
-      ]
-    },
     "git:github.com/Jabbslad/pi-shimmer",
     "git:github.com/Jabbslad/pi-tokenmaxing",
     "git:github.com/Jabbslad/pi-plan-mode",
     "git:github.com/Jabbslad/pi-ask-user",
-    "git:github.com/Jabbslad/pi-mempalace"
+    "git:github.com/nicobailon/pi-web-access",
+    "npm:@narumitw/pi-btw",
+    "npm:@narumitw/pi-goal",
+    "npm:@tintinweb/pi-subagents"
   ],
-  "lastChangelogVersion": "0.70.2"
+  "lastChangelogVersion": "0.76.0",
+  "extensions": [
+    "-extensions/pi-profiler.ts"
+  ],
+  "hideThinkingBlock": false
 }
